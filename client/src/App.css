@@ -14,6 +14,23 @@
   padding: 12px;
 }
 
+.sidemenu-button {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: left;
+  transition: ease 0.25 all;
+}
+
+.sidemenu-button:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.sidemenu-button span {
+  padding-left: 6px;
+  padding-right: 12px;
+}
+
 .chatbox {
   flex: 1;
   border: 1px solid white;
