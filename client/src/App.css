@@ -23,7 +23,7 @@
 }
 
 .sidemenu-button:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
 }
 
 .sidemenu-button span {
@@ -78,6 +78,45 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.chat-log {
+}
+
+.chat-message.chatgpt {
+  background-color: #444654;
+}
+
+.chat-message-center {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.avatar img {
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar.chatgpt {
+  background-color: #10a37f;
+}
+
+.avatar.chatgpt svg {
+  border-radius: 50%;
+}
+
+
+.message {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 @keyframes App-logo-spin {
