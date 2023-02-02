@@ -10,20 +10,36 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+
 const port = 3080;
 
+const model = (typeof currentModel === 'undefined') ? 'text-davinci-003' : currentModel;
+
 app.post('/', async (req, res) => {
+    const { message } = req.body;
     const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: "Say this is a test",
-        max_tokens: 7,
-        temperature: 0,
+        model: `${model}`,
+        prompt: `${message}`,
+        max_tokens: 1000,
+        temperature: 0.5,
     });
-    console.log(response.data.choices[0].text);
+    
     res.json({
-        data: response.data
+        message: response.data.choices[0].text
     })
+});
+
+app.get("/models", async (req, res) => {
+  const response = await openai.listEngines();
+  res.json({
+    models: response.data.data,
+  });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`));
